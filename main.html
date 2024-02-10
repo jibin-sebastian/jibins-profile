@@ -14,12 +14,12 @@
       }
   </style>
 </head>
-<body class="vertical-margin">
+<body class="vertical-margin" style="background-color: rgb(54, 110, 129);">
     <div  class="row mb-3 text-center" id="main" >
         <div class=" col-md-4" id="profile">
             <!--<h1>Profile</h1> -->
             <br>
-            <img src="pimg.jpg" style="width: 150px; border-radius:100%;"><br><br>
+            <img src="pimg.jpg" style="width: 220px; border-radius:100%;"><br><br>
             <h3>Hi, I'm Jibin Sebastian</h3>
             <h5>MSc Data Science student</h5>
             <h4>Universität Trier</h4><br>
@@ -43,7 +43,7 @@
                   </div>
               </div>
               </div>
-              <br><br>
+              <br>
 
              <!-- social links -->
             <div id="icons">
@@ -56,15 +56,24 @@
         </div>
                
         <!-- Skills container, display:block by default -->
-        <div class="col-md-8" id="skills"><br>
-            <h1>Skills</h1><br><br>
+        <div class="col-md-8" id="skills">
+            <h1>Skills</h1><br>
 
             <div class="row row-cols-1 row-cols-md-3 g-4">
                 <div class="col">
                   <div class="card">
                     <!-- <img src="..." class="card-img-top" alt="..."> -->
                     <div class="card-body">
-                      <h5 class="card-title" style="background-color: blue; color: white; padding: 10px; border-radius: 5px;">Card title1</h5>
+                      <h6 class="card-title" style="background-color: rgb(35, 21, 97); color: white; padding: 10px; border-radius: 5px;">Card title1</h6>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="card">
+                    <!-- <img src="..." class="card-img-top" alt="..."> -->
+                    <div class="card-body">
+                      <h6 class="card-title" style="background-color: rgb(35, 21, 97); color: white; padding: 10px; border-radius: 5px;">Card title2</h6>
                       <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     </div>
                   </div>
@@ -73,16 +82,7 @@
                   <div class="card">
                     <!-- <img src="..." class="card-img-top" alt="..."> -->
                     <div class="card-body">
-                      <h5 class="card-title" style="background-color: blue; color: white; padding: 10px; border-radius: 5px;">Card title2</h5>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col">
-                  <div class="card">
-                    <!-- <img src="..." class="card-img-top" alt="..."> -->
-                    <div class="card-body">
-                      <h5 class="card-title" style="background-color: blue; color: white; padding: 10px; border-radius: 5px;">Card title3</h5>
+                      <h6 class="card-title" style="background-color: rgb(35, 21, 97); color: white; padding: 10px; border-radius: 5px;">Card title3</h6>
                       <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
                     </div>
                   </div>
@@ -91,7 +91,7 @@
                   <div class="card">
                     <!-- <img src="..." class="card-img-top" alt="..."> -->
                     <div class="card-body">
-                      <h5 class="card-title" style="background-color: blue; color: white; padding: 10px; border-radius: 5px;">Card title4</h5>
+                      <h6 class="card-title" style="background-color: rgb(35, 21, 97); color: white; padding: 10px; border-radius: 5px;">Card title4</h6>
                       <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     </div>
                   </div>
@@ -100,8 +100,8 @@
                   <div class="card">
                     <!-- <img src="..." class="card-img-top" alt="..."> -->
                     <div class="card-body">
-                      <h5 class="card-title" style="background-color: blue; color: white; padding: 10px; border-radius: 5px;">Card title5</h5>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <h6 class="card-title" style="background-color: rgb(35, 21, 97); color: white; padding: 10px; border-radius: 5px;">Card title5</h6>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     </div>
                   </div>
                 </div>
@@ -109,7 +109,7 @@
                   <div class="card">
                     <!-- <img src="..." class="card-img-top" alt="..."> -->
                     <div class="card-body">
-                      <h5 class="card-title" style="background-color: blue; color: white; padding: 10px; border-radius: 5px;">Card title6</h5>
+                      <h6 class="card-title" style="background-color: rgb(35, 21, 97); color: white; padding: 10px; border-radius: 5px;">Card title6</h6>
                       <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                     </div>
                   </div>
@@ -239,9 +239,6 @@
             </div>
                
         </div>
-        <!--   Awards container, display: none by default -->
-        <div class="col-md-8" id="awards" style="display: none;"><br>
-        </div>
         <!-- About Me content container, initially hidden -->
         <div class="col-md-8" id="about-me-content" style="display: none;">
           <br>
@@ -253,23 +250,34 @@
 
     <script src="main.js"></script>
     <style>
+      html,body{
+          height: 100%;
+          margin: 0;
+      }
+  
+      #profile{
+          color: rgb(61, 42, 130);
+          top: 0;
+          bottom: 0;
+          position: fixed; /* Add this line to fix the left side portion */
+          left: 0; /* Add this line to fix the left side portion */
+          width: 30%; /* Add this line to set the width of the left side portion */
+          overflow-y: auto; /* Add this line to enable scrolling for the left side portion */
+          background-color: #FFE4B2; /* Add this line to set the background color */
+      }
+  
+      #main {
+      margin-left: 30%; /* Add this line to adjust the content area to the right of the fixed left side portion */
+      }
 
-        html,body{
-            height: 100%;
-            margin: 0;
-        }
+      #main .col-md-8 {
+          width: 100%; /* Adjust the width of the content area */
+      }
 
-        #profile{
-            color: rgb(50, 47, 47);
-            top: 0;
-            bottom: 0;
-        }
-
-        #carousal{
-            max-width: 840px;
-        }
-
-
-    </style>
+      #main .col {
+          width: 50%; /* Adjust the width of individual content boxes */
+      }
+  </style>
+  
 </body>
 </html>
