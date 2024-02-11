@@ -65,7 +65,7 @@
                     <!-- <img src="..." class="card-img-top" alt="..."> -->
                     <div class="card-body">
                       <h6 class="card-title" style="background-color: rgb(35, 21, 97); color: white; padding: 10px; border-radius: 5px;">Card title1</h6>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
                     </div>
                   </div>
                 </div>
@@ -92,7 +92,7 @@
                     <!-- <img src="..." class="card-img-top" alt="..."> -->
                     <div class="card-body">
                       <h6 class="card-title" style="background-color: rgb(35, 21, 97); color: white; padding: 10px; border-radius: 5px;">Card title4</h6>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text"><li>This is a longer  </li><li>This is a longer  </li></p>
                     </div>
                   </div>
                 </div>
@@ -101,7 +101,7 @@
                     <!-- <img src="..." class="card-img-top" alt="..."> -->
                     <div class="card-body">
                       <h6 class="card-title" style="background-color: rgb(35, 21, 97); color: white; padding: 10px; border-radius: 5px;">Card title5</h6>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text">This is a longer card .</p>
                     </div>
                   </div>
                 </div>
@@ -110,7 +110,7 @@
                     <!-- <img src="..." class="card-img-top" alt="..."> -->
                     <div class="card-body">
                       <h6 class="card-title" style="background-color: rgb(35, 21, 97); color: white; padding: 10px; border-radius: 5px;">Card title6</h6>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <p class="card-text"> <li>This is a longer  </li><li>This is a longer  </li><li>This is a longer  </li><li>This is a longer  </li></p>
                     </div>
                   </div>
                 </div>
@@ -240,13 +240,44 @@
                
         </div>
         <!-- About Me content container, initially hidden -->
-        <div class="col-md-8" id="about-me-content" style="display: none;">
+        <div class="col-md-8" id="about-me-content" style="display: none; color: #fff;">
           <br>
-          <h1>About Me</h1><br>
-          <p>
-              As a Work Student - Data Scientist at SICK Sensor Intelligence, I apply my data science skills and knowledge to build predictive maintenance models and optimize ETL processes. I use Python, Pandas, Numpy, Scikit-learn, and other tools to preprocess data, create and evaluate models, and tune hyperparameters using Optuna and AutoML. I also improved code quality and project dependency management using pytest, mypy, and Poetry.
-          </p>
-        </div>
+          <h1 style="text-align: center;">About Me</h1><br>
+          <div style="padding: 0 20px;">
+            <p style="text-align: justify;">
+              <strong>Greetings!</strong><br>
+              I'm a passionate Data Scientist with a penchant for solving real-world challenges and a knack for staying abreast of the latest trends in data science.
+            </p>
+
+            <p style="text-align: justify;">
+              <strong>Professional Background:</strong><br>
+              Currently, I serve as a Data Scientist at SICK Sensor Intelligence, specializing in predictive maintenance modeling, ETL automation, text analysis, and data preprocessing.
+              Prior to this, I gained valuable experience as a working student at Creditshelf AG, focusing on data management, analysis, and API development.
+            </p>
+
+            <p style="text-align: justify;">
+              <strong>DevOps Experience:</strong><br>
+              My journey in technology began as a Systems Engineer at Infosys Pvt Ltd, where I honed my skills in incident management, change management, and Kubernetes orchestration.
+              I've cultivated expertise in Unix and Windows administration, SLA management, and monitoring tools like Splunk and AppDynamics.
+            </p>
+
+            <p style="text-align: justify;">
+              <strong>Education & Projects:</strong><br>
+              I hold an MSc in Data Science and have undertaken various projects, including flight fare prediction in the aviation domain, unsupervised machine learning for customer segmentation in retail, and ongoing research on activity group classification using empirical motion data.
+            </p>
+
+            <p style="text-align: justify;">
+              <strong>Certifications & Skills:</strong><br>
+              Alongside my academic pursuits, I've earned certifications in Python and SQL, and I'm currently expanding my expertise in TensorFlow and Keras frameworks.
+              My toolkit includes Python, Panda, NumPy, Matplotlib, Flask, PLSQL, Statistics, and a deep understanding of machine learning algorithms.
+            </p>
+
+            <p style="text-align: justify;">
+              <strong>Conclusion:</strong><br>
+              I'm dedicated to leveraging data science and automation to simplify lives and drive innovation. With a passion for learning and a commitment to excellence, I look forward to contributing meaningfully to future endeavors.
+            </p>
+          </div>
+        </div>        
 
     <script src="main.js"></script>
     <style>
@@ -261,22 +292,24 @@
           bottom: 0;
           position: fixed; /* Add this line to fix the left side portion */
           left: 0; /* Add this line to fix the left side portion */
-          width: 30%; /* Add this line to set the width of the left side portion */
+          width: 33%; /* Add this line to set the width of the left side portion */
           overflow-y: auto; /* Add this line to enable scrolling for the left side portion */
           background-color: #FFE4B2; /* Add this line to set the background color */
       }
   
       #main {
-      margin-left: 30%; /* Add this line to adjust the content area to the right of the fixed left side portion */
-      }
+            margin-left: 35%; /* Add this line to adjust the content area to the right of the fixed left side portion */
+            display: flex; /* Add this line to use flexbox */
+            flex-wrap: wrap; /* Add this line to allow items to wrap to the next line */
+        }
 
-      #main .col-md-8 {
-          width: 100%; /* Adjust the width of the content area */
-      }
+        #main .col-md-8 {
+            flex: 50; /* Adjust the width of the content area */
+        }
 
-      #main .col {
-          width: 50%; /* Adjust the width of individual content boxes */
-      }
+        #main .col {
+            flex: -1; /* Adjust the width of individual content boxes */
+        }
   </style>
   
 </body>
