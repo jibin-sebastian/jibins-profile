@@ -12,6 +12,12 @@
           margin-top: 20px; /* Adjust the value as needed */
           margin-bottom: 20px; /* Adjust the value as needed */
       }
+      /* Remove default list styles */
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+      }
   </style>
 </head>
 <body class="vertical-margin" style="background-color: rgb(54, 110, 129);">
@@ -60,60 +66,105 @@
             <h1>Skills</h1><br>
 
             <div class="row row-cols-1 row-cols-md-3 g-4">
-                <div class="col">
+                <div class="col"  style="width: 50%;">
                   <div class="card">
                     <!-- <img src="..." class="card-img-top" alt="..."> -->
                     <div class="card-body">
-                      <h6 class="card-title" style="background-color: rgb(35, 21, 97); color: white; padding: 10px; border-radius: 5px;">Card title1</h6>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                      <h6 class="card-title" style="background-color: rgb(35, 21, 97); color: white; padding: 10px; border-radius: 5px;">Data Science Toolkit</h6>
+                      <p class="card-text">
+                        <ul>
+                          <li>Python (Scikit-learn, Pandas, Numpy, Keras)</li>
+                          <li>Visualizations (Seaborn, Tableau)</li>
+                          <li>Exploratory Data Analysis (EDA)</li>
+                          <li>Extract-Transform-Load Pipelines (ETL)</li>
+                          <li>Feature Engineering</li>
+                          <li>Text Analysis: NLP, LLM</li>
+                        </ul>
+                      </p>
                     </div>
                   </div>
                 </div>
-                <div class="col">
+                <div class="col" style="width: 50%;">
                   <div class="card">
                     <!-- <img src="..." class="card-img-top" alt="..."> -->
                     <div class="card-body">
-                      <h6 class="card-title" style="background-color: rgb(35, 21, 97); color: white; padding: 10px; border-radius: 5px;">Card title2</h6>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                      <h6 class="card-title" style="background-color: rgb(35, 21, 97); color: white; padding: 10px; border-radius: 5px;">Machine Learning Algorithms</h6>
+                      <p class="card-text">
+                        <ul>
+                          <li>Scikit-Learn, Random Forest</li>
+                          <li>Naive Bayes, Support Vector Machine</li>
+                          <li>Clustering</li>
+                          <li>Linear and Logistic Regression, XGBOOST (Gradient Boosting)</li>
+                          <li>Neural Networks (Tensorflow, CNN, ANN)</li>
+                        </ul>
+                      </p>
                     </div>
                   </div>
                 </div>
-                <div class="col">
+                <div class="col" style="width: 50%;">
                   <div class="card">
                     <!-- <img src="..." class="card-img-top" alt="..."> -->
                     <div class="card-body">
-                      <h6 class="card-title" style="background-color: rgb(35, 21, 97); color: white; padding: 10px; border-radius: 5px;">Card title3</h6>
-                      <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. Title 3 updated now</p>
+                      <h6 class="card-title" style="background-color: rgb(35, 21, 97); color: white; padding: 10px; border-radius: 5px;">Data Engineering Toolkit</h6>
+                      <p class="card-text">
+                        <ul>
+                          <li>REST API with Flask</li>
+                          <li>App Containerization with Docker, K8s</li>
+                          <li>MLOps</li>
+                          <li>PostgreSQL ( basic)</li>
+                        </ul>
+                      </p>
                     </div>
                   </div>
                 </div>
-                <div class="col">
+                <div class="col" style="width: 50%;">
                   <div class="card">
                     <!-- <img src="..." class="card-img-top" alt="..."> -->
                     <div class="card-body">
-                      <h6 class="card-title" style="background-color: rgb(35, 21, 97); color: white; padding: 10px; border-radius: 5px;">Card title4</h6>
-                      <p class="card-text"><li>This is a longer  </li><li>This is a longer  </li></p>
+                      <h6 class="card-title" style="background-color: rgb(35, 21, 97); color: white; padding: 10px; border-radius: 5px;">General</h6>
+                      <p class="card-text">
+                        <ul>
+                          <li>Agile Scrum Methodology</li>
+                          <li>GIT and DVC (Data Version Control)</li>
+                          <li>Visual Studio Code IDE</li>
+                          <li>Windows & Linux , Jupyter Notebooks</li>
+                        </ul>
+                      </p>
                     </div>
                   </div>
                 </div>
-                <div class="col">
+                <!-- <div class="col">
                   <div class="card">
-                    <!-- <img src="..." class="card-img-top" alt="..."> -->
+                    <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
                       <h6 class="card-title" style="background-color: rgb(35, 21, 97); color: white; padding: 10px; border-radius: 5px;">Card title5</h6>
-                      <p class="card-text">This is a longer card .</p>
+                      <p class="card-text">
+                        <ul>
+                          <li>This is a longer line</li>
+                          <li>This is a longer line</li>
+                          <li>This is a longer line</li>
+                          <li>This is a longer line</li>
+                        </ul>
+                      </p>
                     </div>
                   </div>
-                </div>
-                <div class="col">
+                </div> -->
+                <!-- <div class="col">
                   <div class="card">
-                    <!-- <img src="..." class="card-img-top" alt="..."> -->
+                    <img src="..." class="card-img-top" alt="...">
                     <div class="card-body">
                       <h6 class="card-title" style="background-color: rgb(35, 21, 97); color: white; padding: 10px; border-radius: 5px;">Card title6</h6>
-                      <p class="card-text"> <li>This is a longer  </li><li>This is a longer  </li><li>This is a longer  </li><li>This is a longer  </li></p>
+                      <p class="card-text">
+                        <ul>
+                          <li>This is a longer line</li>
+                          <li>This is a longer line</li>
+                          <li>This is a longer line</li>
+                          <li>This is a longer line</li>
+                        </ul>
+                      </p>
                     </div>
                   </div>
-                </div>
+                </div> -->
               </div>
         
         </div>
