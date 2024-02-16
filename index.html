@@ -18,6 +18,14 @@
         padding: 0;
         margin: 0;
       }
+      .img-medium {
+        max-width: 400px;
+      }
+      .icon-sql, .icon-python {
+        font-size: 1.2em; /* Adjust size as needed */
+        margin-right: 5px; /* Add space between icons and text */
+        color: #007bff; /* Change color as needed */
+    }
   </style>
 </head>
 <body class="vertical-margin" style="background-color: rgb(54, 110, 129);">
@@ -40,13 +48,16 @@
                     <button class="btn btn-light" id="btn-projects">Projects</button><br><br>
                   </div>
                   <div class="col">
-                    <button class="btn btn-light" id="btn-awards">Awards</button><br><br>
+                    <button class="btn btn-light" id="btn-about-me">About Me</button><br><br>
+                  </div>
+                  <div class="col">
+                    <button class="btn btn-light" id="btn-awards">Certifications & Awards</button><br><br>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col">
+                  <!-- <div class="col">
                       <button class="btn btn-light" id="btn-about-me">About Me</button><br><br>
-                  </div>
+                  </div> -->
               </div>
               </div>
               <br>
@@ -277,7 +288,7 @@
         </div>
         <!--   Awards container, display: none by default -->
         <div class="col-md-8" id="awards" style="display: none;"><br>
-            <h1>Awards</h1><br><br>
+            <h1>Certifications & Awards</h1><br><br>
             <div id="carousal" >
                 <div id="carouselExampleDark" class="carousel carousel-dark slide" >
                     <div class="carousel-indicators">
@@ -288,31 +299,49 @@
                     <div class="carousel-inner" >
                       <div class="carousel-item active" data-bs-interval="10000">
                         <!-- <img src="..." class="d-block w-100" alt="..."> -->
-                        <div class="card text-bg-light mb-3 d-block w-100"  style="height: 300px;">
-                            <div class="card-header">Header</div>
+                        <div class="card text-bg-light mb-3 d-block w-100">
+                            <!-- <div class="card-header">Header</div> -->
+                            <div class="card-header">
+                              <span class="icon-sql">&#128187;</span>
+                              <span class="icon-python">&#x1F40D;</span>
+                              <!-- Header -->
+                            </div>                                                    
                             <div class="card-body">
-                              <h5 class="card-title">Light card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <h5 class="card-title">Foundations for Big Data Analysis with SQL</h5>
+                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                              <img src="certifications\bigdata.png" class="img-fluid img-medium" alt="Image">
                             </div>
                           </div>
                       </div>
                       <div class="carousel-item" data-bs-interval="2000">
                         <!-- <img src="..." class="d-block w-100" alt="..."> -->
-                        <div class="card text-bg-light mb-3 d-block w-100" style="height: 300px;" >
-                            <div class="card-header">Header</div>
+                        <div class="card text-bg-light mb-3 d-block w-100">
+                            <!-- <div class="card-header">Header</div> -->
+                            <div class="card-header">
+                              <span class="icon-sql">&#128187;</span>
+                              <span class="icon-python">&#x1F40D;</span>
+                              <!-- Header -->
+                            </div>  
                             <div class="card-body">
                               <h5 class="card-title">Light card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                              <img src="certifications\bigdata.png" class="img-fluid img-medium" alt="Image">
                             </div>
                           </div>
                       </div>
                       <div class="carousel-item">
                         <!-- <img src="..." class="d-block w-100" alt="..."> -->
-                        <div class="card text-bg-light mb-3 d-block w-100 " style="height:300px;">
-                            <div class="card-header">Header</div>
+                        <div class="card text-bg-light mb-3 d-block w-100 ">
+                            <!-- <div class="card-header">Header</div> -->
+                            <div class="card-header">
+                              <span class="icon-sql">&#128187;</span>
+                              <span class="icon-python">&#x1F40D;</span>
+                              <!-- Header -->
+                            </div>
                             <div class="card-body">
                               <h5 class="card-title">Light card title</h5>
-                              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                              <!-- <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> -->
+                               <img src="certifications\bigdata.png" class="img-fluid img-medium" alt="Image">
                             </div>
                           </div>
 
