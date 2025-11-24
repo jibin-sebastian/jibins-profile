@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { GithubIcon, LinkedinIcon, MailIcon, SendIcon, MenuIcon, XIcon, HomeIcon, Cpu, Brain, Cloud, Gauge, LineChart, ServerCog, Code2, Newspaper, BrainCircuitIcon } from 'lucide-react';
+import { GithubIcon, LinkedinIcon, MailIcon, SendIcon, MenuIcon, XIcon, HomeIcon, Cpu, Brain, Cloud, Gauge, LineChart, ServerCog, Code2, Newspaper, BrainCircuitIcon, FolderKanban, Award } from 'lucide-react';
 type TabType = 'about' | 'skills' | 'projects' | 'certifications' | 'ai-services' | 'contact';
 interface SidebarProps {
   activeTab: TabType;
@@ -16,20 +16,24 @@ const tabs: {
   icon: <HomeIcon size={18} />
 }, {
   id: 'skills',
-  label: 'Skills'
+  label: 'Skills',
+  icon: <Code2 size={18} />
 }, {
   id: 'projects',
-  label: 'Projects'
+  label: 'Projects',
+  icon: <FolderKanban size={18} />
 }, {
   id: 'certifications',
-  label: 'Certifications & Awards'
+  label: 'Certifications & Awards',
+  icon: <Award size={18} />
 }, {
   id: 'ai-services',
   label: 'AI Services',
   icon: <BrainCircuitIcon size={18} />
 }, {
   id: 'contact',
-  label: 'Contact'
+  label: 'Contact',
+  icon: <MailIcon size={18} />
 }];
 const stackItems = [{
   label: 'Data Journalist',
