@@ -109,140 +109,109 @@ export function AboutSection() {
         style={{ opacity }}
         className="relative min-h-[60vh] sm:min-h-[70vh] lg:min-h-[80vh] flex items-center mb-12 sm:mb-16 lg:mb-24 overflow-hidden rounded-3xl"
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-slate-900/40 backdrop-blur-sm" />
+        {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-slate-900/40 backdrop-blur-sm" /> */}
 
-        <div className="relative z-10 w-full px-4 sm:px-8 lg:px-12">
-          <div className="relative">
-            <AIBackdrop />
+        {/* <div className="relative z-10 w-full px-4 sm:px-8 lg:px-12"> */}
+        {/* <div className="relative"> */}
+        <AIBackdrop />
 
-            {/* Text Content with Layered Parallax */}
-            <div className="space-y-6 lg:space-y-8 relative">
-              {/* Name - Slowest movement (foreground) */}
-              <motion.div
-                style={{ y: nameY, opacity: textOpacity }}
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                {/* <h1 className="text-4xl sm:text-5xl lg:text-4xl xl:text-5xl font-bold text-white mb-2">
-                  Jibin Sebastian
-                </h1> */}
-              </motion.div>
+        {/* Text Content with Layered Parallax */}
+        <div className="space-y-6 lg:space-y-8 relative">
+          {/* Name - Slowest movement (foreground) */}
+          <motion.div
+            style={{ y: nameY, opacity: textOpacity }}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            <h1 className="text-4xl sm:text-4xl lg:text-4xl xl:text-4xl font-bold text-white text-center mt-6 sm:mt-4">
+              Human by design, AI by craft
+            </h1>
+          </motion.div>
 
-              {/* Title - Medium-slow movement */}
-              <motion.div
-                style={{ y: titleY, opacity: textOpacity }}
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              >
-              </motion.div>
+          {/* Title - Medium-slow movement */}
 
-              {/* Description - Medium movement */}
-              <motion.div
-                style={{ y: descriptionY, opacity: textOpacity, textAlign: 'justify' }}
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="space-y-4 text-[14px] text-slate-200 leading-relaxed max-w-3xl"
-              >
-                <p>
-                  I am an AI Software Engineer with a strong passion for solving complex, real-world challenges through
-                  innovative and scalable AI-driven solutions. I continuously stay up to date with the latest
-                  advancements in artificial intelligence, machine learning, and data-centric technologies, enabling me
-                  to design systems that are both technically robust and business-focused.
-                </p>
-                <p>
-                  Beyond building solutions, I am actively seeking interesting and impactful AI projects where
-                  technology can create measurable value. I enjoy collaborating with individuals, startups, and
-                  organizations to help them turn ideas into intelligent products, optimize processes, and unlock new
-                  opportunities using AI.
-                </p>
-                <p>
-                  I provide end-to-end support--from problem understanding and data strategy to model development,
-                  deployment, and optimization--helping businesses transition from traditional workflows to AI-driven
-                  decision-making and automation. My goal is to empower teams and initiatives to adopt AI responsibly
-                  and effectively, ensuring solutions are practical, scalable, and aligned with real business objectives.
-                </p>
-              </motion.div>
+          {/* Description - Medium movement */}
+          <motion.div
+            style={{ y: descriptionY, opacity: textOpacity, textAlign: 'justify' }}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="space-y-4 text-[14px] text-slate-200 leading-relaxed max-w-3xl"
+          >
+            <p>
+              I am an AI Software Engineer with a strong passion for solving complex, real-world challenges through
+              innovative and scalable AI-driven solutions. I continuously stay up to date with the latest
+              advancements in artificial intelligence, machine learning, and data-centric technologies, enabling me
+              to design systems that are both technically robust and business-focused.
+            </p>
+            <p>
+              Beyond building solutions, I am actively seeking interesting and impactful AI projects where
+              technology can create measurable value. I enjoy collaborating with individuals, startups, and
+              organizations to help them turn ideas into intelligent products, optimize processes, and unlock new
+              opportunities using AI.
+            </p>
+            <p>
+              I provide end-to-end support--from problem understanding and data strategy to model development,
+              deployment, and optimization--helping businesses transition from traditional workflows to AI-driven
+              decision-making and automation. My goal is to empower teams and initiatives to adopt AI responsibly
+              and effectively, ensuring solutions are practical, scalable, and aligned with real business objectives.
+            </p>
+          </motion.div>
 
-              {/* Buttons - Faster movement (background) */}
-              <motion.div
-                style={{ y: buttonsY, opacity: textOpacity }}
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                className="flex flex-wrap gap-3 sm:gap-4 justify-center"
-              >
-                <motion.a
-                  href="/Resume_jibinsebastian.pdf"
-                  download
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/40 transition-all duration-300"
-                  aria-label="Download resume"
-                >
-                  Download CV
-                </motion.a>
-                <motion.a
-                  href="https://github.com/jibin-sebastian?tab=repositories"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-slate-900/60 border border-slate-600 text-white font-semibold rounded-lg hover:border-blue-400/70 transition-all duration-300"
-                >
-                  View GitHub
-                </motion.a>
-                <motion.a
-                  href="#ai-services"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-4 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-gradient-to-r from-cyan-500 to-teal-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300"
-                >
-                  AI Services
-                </motion.a>
-              </motion.div>
-
-              {/* Social Icons - Fastest movement */}
-              {/* <motion.div
-                style={{ y: buttonsY, opacity: textOpacity }}
-                initial={{ opacity: 0, x: -50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="flex gap-4 pt-4"
-              >
-                {[
-                  { label: 'Email', href: '#contact', Icon: GmailIcon },
-                  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/jibinsebastian01/', Icon: LinkedInIcon },
-                  { label: 'GitHub', href: 'https://github.com/jibin-sebastian?tab=repositories', Icon: GithubIcon }
-                ].map((social) => (
-                  <motion.a
-                    key={social.label}
-                    href={social.href}
-                    whileHover={{ y: -4 }}
-                    className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-slate-800/60 backdrop-blur-sm border border-slate-700 flex items-center justify-center hover:border-blue-500/50 transition-all duration-300"
-                    aria-label={social.label}
-                  >
-                    <social.Icon />
-                  </motion.a>
-                ))}
-              </motion.div> */}
-            </div>
-          </div>
+          {/* Buttons - Faster movement (background) */}
+          <motion.div
+            style={{ y: buttonsY, opacity: textOpacity }}
+            initial={{ opacity: 0, x: -50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+            className="flex flex-wrap gap-3 sm:gap-4 justify-center mb-4 sm:mb-6"
+          >
+            <motion.a
+              href="/Resume_jibinsebastian.pdf"
+              download
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-4 sm:px-3 py-2.5 sm:py-3 text-sm sm:text-base bg-gradient-to-r from-blue-600 to-purple-600 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-blue-500/40 transition-all duration-300"
+              aria-label="Download resume"
+            >
+              My CV
+            </motion.a>
+            <motion.a
+              href="https://github.com/jibin-sebastian?tab=repositories"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-4 sm:px-3 py-2.5 sm:py-3 text-sm sm:text-base bg-slate-900/60 border border-slate-600 text-white font-semibold rounded-lg hover:border-blue-400/70 transition-all duration-300"
+            >
+              GitHub
+            </motion.a>
+            <motion.a
+              href="#ai-services"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-4 sm:px-3 py-2.5 sm:py-3 text-sm sm:text-base bg-gradient-to-r from-cyan-500 to-teal-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/30 transition-all duration-300"
+            >
+              AI Services
+            </motion.a>
+          </motion.div>
         </div>
-      </motion.div>
+        {/* </div> */}
+        {/* </div> */}
+      </motion.div >
 
       {/* Professional Profile Section */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
+      < motion.div
+        initial={{ opacity: 0, y: -20 }
+        }
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="mb-8 sm:mb-12"
       >
         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">Professional Profile</h2>
         <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full" />
-      </motion.div>
+      </motion.div >
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -307,6 +276,6 @@ export function AboutSection() {
           a research paper on activity group classification using motion-capture data.
         </p>
       </motion.div>
-    </div>
+    </div >
   );
 }
