@@ -15,15 +15,19 @@ const GithubIcon = () => <svg viewBox="0 0 24 24" className="w-5 h-5" aria-hidde
 
 const AIBackdrop = () => (
   <div className="pointer-events-none absolute inset-0 -z-10">
+    {/* Light-blue AI gradient wash */}
+    <div className="absolute inset-0 bg-gradient-to-br from-sky-400/20 via-cyan-400/10 to-transparent" />
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_15%,rgba(56,189,248,0.25),transparent_55%),radial-gradient(circle_at_80%_60%,rgba(34,211,238,0.18),transparent_60%)]" />
+
     <div
-      className="absolute inset-0 opacity-40"
+      className="absolute inset-0 opacity-60"
       style={{
         backgroundImage:
           'repeating-linear-gradient(125deg, rgba(59,130,246,0.1) 0px, rgba(59,130,246,0.1) 1px, transparent 1px, transparent 20px), repeating-linear-gradient(-125deg, rgba(45,212,191,0.08) 0px, rgba(45,212,191,0.08) 1px, transparent 1px, transparent 24px)'
       }}
     />
-    <div className="absolute -top-12 -right-10 h-56 w-56 bg-cyan-500/20 blur-3xl" />
-    <div className="absolute bottom-0 left-0 h-64 w-64 bg-purple-600/20 blur-3xl" />
+    <div className="absolute -top-12 -right-10 h-64 w-64 bg-sky-400/25 blur-3xl" />
+    <div className="absolute bottom-0 left-0 h-72 w-72 bg-cyan-400/18 blur-3xl" />
     <div className="absolute top-10 left-1/3 w-16 h-16 border border-teal-300/40 rounded-full animate-pulse" />
     <div className="absolute bottom-12 right-1/4 w-24 h-24 border border-blue-400/40 rounded-3xl rotate-12" />
   </div>
@@ -45,7 +49,7 @@ export function AboutSection() {
 
   const experiences = [
     {
-      role: 'Data Analytics & AI',
+      role: 'AI Software Engineer',
       company: 'SupplyOn AG',
       period: '2023 - Present',
       description: [
@@ -107,9 +111,10 @@ export function AboutSection() {
       {/* Hero Section with Enhanced Parallax */}
       <motion.div
         style={{ opacity }}
-        className="relative min-h-[60vh] sm:min-h-[70vh] lg:min-h-[80vh] flex items-center mb-12 sm:mb-16 lg:mb-24 overflow-hidden rounded-3xl"
+        className="relative min-h-[60vh] sm:min-h-[70vh] lg:min-h-[80vh] flex items-center mb-12 sm:mb-16 lg:mb-24 overflow-hidden rounded-3xl border border-sky-400/15 bg-slate-950/20"
       >
-        {/* <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 via-purple-600/20 to-slate-900/40 backdrop-blur-sm" /> */}
+        {/* Subtle glass layer to soften the pattern */}
+        <div className="absolute inset-0 bg-gradient-to-br from-sky-500/10 via-cyan-500/5 to-slate-900/30 backdrop-blur-[2px]" />
 
         {/* <div className="relative z-10 w-full px-4 sm:px-8 lg:px-12"> */}
         {/* <div className="relative"> */}
@@ -203,6 +208,11 @@ export function AboutSection() {
         {/* </div> */}
         {/* </div> */}
       </motion.div >
+
+      {/* Divider before Professional Profile */}
+      <div className="my-10 sm:my-12 lg:my-16">
+        <div className="h-px w-full bg-gradient-to-r from-transparent via-sky-400/50 to-transparent" />
+      </div>
 
       {/* Professional Profile Section */}
       < motion.div
