@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { SendIcon, MailIcon, MapPinIcon, PhoneIcon, CheckCircleIcon, AlertCircleIcon } from 'lucide-react';
 import emailjs from '@emailjs/browser';
+import { useI18n } from '../i18n/I18nContext';
 
 const GmailIcon = () => (
   <svg viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true">
@@ -32,6 +33,7 @@ const GithubIcon = () => (
 
 export function ContactSection() {
   const formRef = useRef<HTMLFormElement>(null);
+  const { content } = useI18n();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -79,7 +81,7 @@ export function ContactSection() {
       // Surface EmailJS error details to help diagnose 4xx issues (invalid service/template/public key or params mismatch)
       const detail = (error as any)?.text || (error as any)?.message || 'Unknown error';
       setSubmitStatus('error');
-      setErrorMessage('Failed to send message. Please verify EmailJS Service ID, Template ID, Public Key, and template variables.');
+      setErrorMessage(content.contact.submit.error);
       console.error('EmailJS Error:', detail);
     } finally {
       setIsSubmitting(false);
@@ -94,7 +96,7 @@ export function ContactSection() {
         transition={{ duration: 0.5 }}
         className="mb-8 sm:mb-12"
       >
-        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">Get In Touch</h2>
+        <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">{content.contact.title}</h2>
         <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full" />
       </motion.div>
 
@@ -107,7 +109,7 @@ export function ContactSection() {
           className="lg:col-span-1 2xl:col-span-2 space-y-6"
         >
           <div className="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 2xl:p-8">
-            <h3 className="text-xl font-bold text-white mb-6">Contact Information</h3>
+            <h3 className="text-xl font-bold text-white mb-6">{content.contact.infoTitle}</h3>
 
             <div className="space-y-4">
               <motion.div whileHover={{ x: 5 }} className="flex items-start gap-4">
@@ -115,7 +117,7 @@ export function ContactSection() {
                   <MailIcon size={20} className="text-blue-400" />
                 </div>
                 <div>
-                  <p className="text-slate-400 text-sm mb-1">Email</p>
+                  <p className="text-slate-400 text-sm mb-1">{content.contact.labels.email}</p>
                   <a href="mailto:jibinkallanickal@gmail.com" className="text-white hover:text-blue-400 transition-colors">
                     jibinkallanickal@gmail.com
                   </a>
@@ -127,7 +129,7 @@ export function ContactSection() {
                   <PhoneIcon size={20} className="text-purple-400" />
                 </div>
                 <div>
-                  <p className="text-slate-400 text-sm mb-1">Phone</p>
+                  <p className="text-slate-400 text-sm mb-1">{content.contact.labels.phone}</p>
                   <a href="tel:+4915735612873" className="text-white hover:text-purple-400 transition-colors">
                     +49 15735612873
                   </a>
@@ -139,8 +141,8 @@ export function ContactSection() {
                   <MapPinIcon size={20} className="text-green-400" />
                 </div>
                 <div>
-                  <p className="text-slate-400 text-sm mb-1">Location</p>
-                  <p className="text-white">Stuttgart, Germany</p>
+                  <p className="text-slate-400 text-sm mb-1">{content.contact.labels.location}</p>
+                  <p className="text-white">{content.contact.locationValue}</p>
                 </div>
               </motion.div>
             </div>
@@ -152,12 +154,12 @@ export function ContactSection() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 2xl:p-8"
           >
-            <h3 className="text-lg font-bold text-white mb-4">Follow Me</h3>
+            <h3 className="text-lg font-bold text-white mb-4">{content.contact.followTitle}</h3>
             <div className="flex gap-3">
               {[
-                { href: '#contact', label: 'Email', Icon: GmailIcon },
-                { href: 'https://www.linkedin.com/in/jibinsebastian01/', label: 'LinkedIn', Icon: LinkedInIcon },
-                { href: 'https://github.com/jibin-sebastian?tab=repositories', label: 'GitHub', Icon: GithubIcon }
+                { href: '#contact', label: content.sidebar.social.email, Icon: GmailIcon },
+                { href: 'https://www.linkedin.com/in/jibinsebastian01/', label: content.sidebar.social.linkedin, Icon: LinkedInIcon },
+                { href: 'https://github.com/jibin-sebastian?tab=repositories', label: content.sidebar.social.github, Icon: GithubIcon }
               ].map((social) => (
                 <motion.a
                   key={social.label}
@@ -189,7 +191,7 @@ export function ContactSection() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 2xl:gap-8 mb-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
-                  Your Name
+                  {content.contact.labels.yourName}
                 </label>
                 <input
                   type="text"
@@ -199,13 +201,13 @@ export function ContactSection() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
-                  placeholder="John Doe"
+                  placeholder={content.contact.placeholders.name}
                 />
               </div>
 
               <div>
                 <label htmlFor="email" className="block text-sm font-medium text-slate-300 mb-2">
-                  Your Email
+                  {content.contact.labels.yourEmail}
                 </label>
                 <input
                   type="email"
@@ -215,14 +217,14 @@ export function ContactSection() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
-                  placeholder="john@example.com"
+                  placeholder={content.contact.placeholders.email}
                 />
               </div>
             </div>
 
             <div className="mb-6">
               <label htmlFor="subject" className="block text-sm font-medium text-slate-300 mb-2">
-                Subject
+                {content.contact.labels.subject}
               </label>
               <input
                 type="text"
@@ -232,13 +234,13 @@ export function ContactSection() {
                 onChange={handleChange}
                 required
                 className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors"
-                placeholder="Project Inquiry"
+                placeholder={content.contact.placeholders.subject}
               />
             </div>
 
             <div className="mb-6">
               <label htmlFor="message" className="block text-sm font-medium text-slate-300 mb-2">
-                Message
+                {content.contact.labels.message}
               </label>
               <textarea
                 id="message"
@@ -248,7 +250,7 @@ export function ContactSection() {
                 required
                 rows={6}
                 className="w-full px-4 py-3 bg-slate-900/50 border border-slate-700 rounded-xl text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition-colors resize-none"
-                placeholder="Tell me about your project..."
+                placeholder={content.contact.placeholders.message}
               />
             </div>
 
@@ -259,7 +261,7 @@ export function ContactSection() {
                 className="mb-6 p-4 bg-green-600/20 border border-green-600/50 rounded-xl flex items-center gap-3"
               >
                 <CheckCircleIcon size={20} className="text-green-400 flex-shrink-0" />
-                <p className="text-green-400 text-sm">Message sent successfully! I'll get back to you soon.</p>
+                <p className="text-green-400 text-sm">{content.contact.submit.success}</p>
               </motion.div>
             )}
 
@@ -284,12 +286,12 @@ export function ContactSection() {
               {isSubmitting ? (
                 <>
                   <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                  Sending...
+                  {content.contact.submit.sending}
                 </>
               ) : (
                 <>
                   <SendIcon size={20} />
-                  Send Message
+                  {content.contact.submit.send}
                 </>
               )}
             </motion.button>

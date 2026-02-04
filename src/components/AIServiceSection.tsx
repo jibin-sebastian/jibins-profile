@@ -1,4 +1,3 @@
-import React from 'react'
 import { motion } from 'framer-motion'
 import {
     SparklesIcon,
@@ -10,51 +9,21 @@ import {
     ZapIcon,
     TargetIcon,
 } from 'lucide-react'
+import { useI18n } from '../i18n/I18nContext'
 export function AIServicesSection() {
-    const services = [
-        {
-            icon: <WorkflowIcon size={28} />,
-            title: 'AI Workflow Design',
-            description:
-                'Design practical AI workflows tailored to your business processes, ensuring seamless integration with existing systems and maximum operational efficiency.',
-            color: '#06b6d4',
-        },
-        {
-            icon: <RocketIcon size={28} />,
-            title: 'Lightweight Prototypes',
-            description:
-                'Develop rapid, lightweight AI prototypes to validate concepts quickly, test hypotheses, and demonstrate value before full-scale implementation.',
-            color: '#8b5cf6',
-        },
-        {
-            icon: <BrainCircuitIcon size={28} />,
-            title: 'Model Operationalization',
-            description:
-                'Operationalize machine learning models with MLOps best practices, ensuring reliable deployment, monitoring, and continuous improvement in production.',
-            color: '#3b82f6',
-        },
-        {
-            icon: <BarChart3Icon size={28} />,
-            title: 'Data-Driven Tools',
-            description:
-                'Build custom data-driven tools and dashboards that transform raw data into actionable insights, empowering teams to make informed decisions.',
-            color: '#10b981',
-        },
-        {
-            icon: <ZapIcon size={28} />,
-            title: 'Automation Solutions',
-            description:
-                'Implement intelligent automation systems that streamline repetitive tasks, reduce manual effort, and accelerate business operations.',
-            color: '#f59e0b',
-        },
-        {
-            icon: <TargetIcon size={28} />,
-            title: 'Business Integration',
-            description:
-                'Ensure AI solutions align with real business needs, focusing on measurable outcomes and practical implementation strategies.',
-            color: '#ec4899',
-        },
+    const { content } = useI18n()
+    const iconList = [
+        <WorkflowIcon size={28} />,
+        <RocketIcon size={28} />,
+        <BrainCircuitIcon size={28} />,
+        <BarChart3Icon size={28} />,
+        <ZapIcon size={28} />,
+        <TargetIcon size={28} />,
     ]
+    const services = content.aiServices.services.map((s, idx) => ({
+        ...s,
+        icon: iconList[idx] ?? <SparklesIcon size={28} />,
+    }))
     return (
         <div className="relative">
             {/* Subtle tech pattern background */}
@@ -102,10 +71,10 @@ export function AIServicesSection() {
                     </motion.div>
                     <div>
                         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-2">
-                            AI Services
+                            {content.aiServices.title}
                         </h1>
                         <p className="text-lg sm:text-xl text-cyan-400 font-medium">
-                            End-to-End AI & Automation Solutions
+                            {content.aiServices.subtitle}
                         </p>
                     </div>
                 </div>
@@ -160,15 +129,10 @@ export function AIServicesSection() {
                         </div>
                         <div>
                             <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                                Comprehensive AI Support
+                                {content.aiServices.introTitle}
                             </h2>
                             <p className="text-base sm:text-lg text-slate-300 leading-relaxed">
-                                I provide end-to-end AI and automation support for businesses
-                                looking to modernize operations, integrate intelligent systems,
-                                and accelerate decision-making. My services focus on designing
-                                practical AI workflows, developing lightweight prototypes,
-                                operationalizing models, and building data-driven tools tailored
-                                to real business needs.
+                                {content.aiServices.intro}
                             </p>
                         </div>
                     </motion.div>
@@ -192,7 +156,7 @@ export function AIServicesSection() {
                 className="mb-8 sm:mb-12"
             >
                 <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">
-                    What I Offer
+                    {content.aiServices.offerTitle}
                 </h2>
                 <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-teal-600 rounded-full" />
             </motion.div>
@@ -271,13 +235,10 @@ export function AIServicesSection() {
                 className="mt-12 sm:mt-16 bg-gradient-to-r from-cyan-600/20 to-teal-600/20 backdrop-blur-sm border border-cyan-500/30 rounded-2xl p-6 sm:p-8 lg:p-10 text-center"
             >
                 <h3 className="text-2xl sm:text-3xl font-bold text-white mb-4">
-                    Ready to Transform Your Business with AI?
+                    {content.aiServices.ctaTitle}
                 </h3>
                 <p className="text-slate-300 text-base sm:text-lg mb-6 max-w-2xl mx-auto">
-                    Let's discuss how AI and automation can drive innovation and
-                    efficiency in your organization. From concept to deployment, I'll help
-                    you navigate the AI landscape with practical, results-driven
-                    solutions.
+                    {content.aiServices.ctaDescription}
                 </p>
                 <motion.a
                     href="#contact"
@@ -289,7 +250,7 @@ export function AIServicesSection() {
                     }}
                     className="inline-block px-8 py-4 bg-gradient-to-r from-cyan-600 to-teal-600 text-white font-semibold rounded-xl hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300"
                 >
-                    Get in Touch
+                    {content.aiServices.ctaButton}
                 </motion.a>
             </motion.div>
         </div>

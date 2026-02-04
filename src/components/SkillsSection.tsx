@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { DatabaseIcon, BarChart3Icon, BrainCircuitIcon, CpuIcon, NetworkIcon, SparklesIcon, ServerIcon, CloudIcon, ContainerIcon, CodeIcon, GitBranchIcon, TerminalIcon } from 'lucide-react';
+import { DatabaseIcon, BrainCircuitIcon, ServerIcon, CodeIcon } from 'lucide-react';
+import { useI18n } from '../i18n/I18nContext';
 interface SkillCardProps {
   title: string;
   skills: string[];
@@ -64,27 +65,15 @@ function SkillCard({
     </motion.div>;
 }
 export function SkillsSection() {
-  const skillCategories = [{
-    title: 'Data Science Toolkit',
-    color: '#3b82f6',
-    icon: <DatabaseIcon size={24} />,
-    skills: ['Python (Scikit-learn, Pandas, Numpy, Keras)', 'Visualizations (Seaborn, Tableau)', 'Exploratory Data Analysis (EDA)', 'Extract-Transform-Load Pipelines (ETL)', 'Feature Engineering', 'Text Analysis: NLP, LLM (Mistral)']
-  }, {
-    title: 'Machine Learning Algorithms',
-    color: '#8b5cf6',
-    icon: <BrainCircuitIcon size={24} />,
-    skills: ['Scikit-Learn, Random Forest', 'Naive Bayes, Support Vector Machine', 'Clustering', 'Linear and Logistic Regression, XGBOOST (Gradient Boosting)', 'Neural Networks (Tensorflow, CNN, ANN)']
-  }, {
-    title: 'Data Engineering Toolkit',
-    color: '#06b6d4',
-    icon: <ServerIcon size={24} />,
-    skills: ['REST API with Flask', 'FAST API', 'Docker, Kubernetes', 'MLOps', 'PostgreSQL (basic)']
-  }, {
-    title: 'General',
-    color: '#10b981',
-    icon: <CodeIcon size={24} />,
-    skills: ['Agile Scrum Methodology', 'GIT and DVC (Data Version Control)', 'Visual Studio Code IDE', 'Windows & Linux, Jupyter Notebooks, Unix', 'React JS (Basics)']
-  }];
+  const { content } = useI18n();
+  const categoryIcons = [<DatabaseIcon size={24} />, <BrainCircuitIcon size={24} />, <ServerIcon size={24} />, <CodeIcon size={24} />];
+  const categoryColors = ['#3b82f6', '#8b5cf6', '#06b6d4', '#10b981'];
+  const skillCategories = content.skills.categories.map((cat, index) => ({
+    title: cat.title,
+    skills: cat.skills,
+    icon: categoryIcons[index] ?? <CodeIcon size={24} />,
+    color: categoryColors[index] ?? '#3b82f6'
+  }));
   return <div>
       <motion.div initial={{
       opacity: 0,
@@ -96,7 +85,7 @@ export function SkillsSection() {
       duration: 0.5
     }} className="mb-8 sm:mb-12">
         <h2 className="text-3xl sm:text-4xl font-bold text-white mb-2">
-          Skills
+          {content.skills.title}
         </h2>
         <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full" />
       </motion.div>

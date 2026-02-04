@@ -1,70 +1,36 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { GithubIcon, LinkedinIcon, MailIcon, SendIcon, MenuIcon, XIcon, HomeIcon, Cpu, Brain, Cloud, Gauge, LineChart, ServerCog, Code2, Newspaper, BrainCircuitIcon, FolderKanban, Award } from 'lucide-react';
+import { useI18n } from '../i18n/I18nContext';
 type TabType = 'about' | 'skills' | 'projects' | 'certifications' | 'ai-services' | 'contact';
 interface SidebarProps {
   activeTab: TabType;
   onTabChange: (tab: TabType) => void;
 }
-const tabs: {
-  id: TabType;
-  label: string;
-  icon?: React.ReactNode;
-}[] = [{
-  id: 'about',
-  label: 'Home',
-  icon: <HomeIcon size={18} />
-}, {
-  id: 'skills',
-  label: 'Skills',
-  icon: <Code2 size={18} />
-}, {
-  id: 'projects',
-  label: 'Projects',
-  icon: <FolderKanban size={18} />
-}, {
-  id: 'certifications',
-  label: 'Certifications & Awards',
-  icon: <Award size={18} />
-}, {
-  id: 'ai-services',
-  label: 'AI Services',
-  icon: <BrainCircuitIcon size={18} />
-}, {
-  id: 'contact',
-  label: 'Contact',
-  icon: <MailIcon size={18} />
-}];
-const stackItems = [{
-  label: 'Data Journalist',
-  Icon: Newspaper
-}, {
-  label: 'Machine Learning',
-  Icon: Cpu
-}, {
-  label: 'Deep Learning',
-  Icon: Brain
-}, {
-  label: 'MLOps',
-  Icon: ServerCog
-}, {
-  label: 'Predictive Maintenance Modeling',
-  Icon: Gauge
-}, {
-  label: 'Predictive Analytics Modeling',
-  Icon: LineChart
-}, {
-  label: 'Python',
-  Icon: Code2
-}, {
-  label: 'Azure',
-  Icon: Cloud
-}];
+const tabIcons: Record<TabType, React.ReactNode> = {
+  about: <HomeIcon size={18} />,
+  skills: <Code2 size={18} />,
+  projects: <FolderKanban size={18} />,
+  certifications: <Award size={18} />,
+  'ai-services': <BrainCircuitIcon size={18} />,
+  contact: <MailIcon size={18} />
+};
+
+const stackIconList = [Newspaper, Cpu, Brain, ServerCog, Gauge, LineChart, Code2, Cloud];
 export function Sidebar({
   activeTab,
   onTabChange
 }: SidebarProps) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { language, setLanguage, content } = useI18n();
+  const tabs = content.sidebar.tabs.map(t => ({
+    ...t,
+    icon: tabIcons[t.id]
+  }));
+  const stackItems = content.sidebar.stackItems.map((item, i) => ({
+    label: item.label,
+    Icon: stackIconList[i] ?? Code2
+  }));
   const handleTabChange = (tab: TabType) => {
     onTabChange(tab);
     setIsMobileMenuOpen(false);
@@ -74,10 +40,10 @@ export function Sidebar({
     <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-slate-950/95 backdrop-blur-xl border-b border-slate-800/50 px-4 py-3">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <img src="/image.png" alt="Jibin Sebastian" className="w-10 h-10 rounded-full object-cover border-2 border-slate-700" />
+          <img src="/image.png" alt={content.sidebar.name} className="w-10 h-10 rounded-full object-cover border-2 border-slate-700" />
           <div>
-            <h1 className="text-sm font-bold text-white">Jibin Sebastian</h1>
-            <p className="text-xs text-slate-400">Data Scientist</p>
+            <h1 className="text-sm font-bold text-white">{content.sidebar.name}</h1>
+            <p className="text-xs text-slate-400">{content.sidebar.title}</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
@@ -85,10 +51,10 @@ export function Sidebar({
             scale: 1.05
           }} whileTap={{
             scale: 0.95
-          }} className="p-2 text-slate-400 hover:text-blue-400 transition-colors" aria-label="Home">
+          }} className="p-2 text-slate-400 hover:text-blue-400 transition-colors" aria-label={content.sidebar.social.homeAriaLabel}>
             <HomeIcon size={20} />
           </motion.button>
-          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 text-slate-400 hover:text-white transition-colors">
+          <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)} className="p-2 text-slate-400 hover:text-white transition-colors" aria-label={isMobileMenuOpen ? content.sidebar.social.closeMenuAriaLabel : content.sidebar.social.menuAriaLabel}>
             {isMobileMenuOpen ? <XIcon size={24} /> : <MenuIcon size={24} />}
           </button>
         </div>
@@ -114,7 +80,7 @@ export function Sidebar({
           y: -20,
           opacity: 0
         }} className="p-6" onClick={e => e.stopPropagation()}>
-          <nav className="space-y-2 mb-8">
+          <nav className="space-y-2">
             {tabs.map(tab => <button key={tab.id} onClick={() => handleTabChange(tab.id)} className="relative w-full text-left px-4 py-3 rounded-lg transition-colors">
               {activeTab === tab.id && <motion.div layoutId="activeMobileTab" className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg" transition={{
                 type: 'spring',
@@ -128,23 +94,36 @@ export function Sidebar({
             </button>)}
           </nav>
 
+          {/* Language toggle */}
+          <div className="mt-3 mb-8 rounded-xl border border-slate-800/50 bg-slate-900/40 p-4">
+            <p className="text-xs font-medium text-slate-400 mb-3">{content.sidebar.language.label}</p>
+            <div className="flex gap-2">
+              <button onClick={() => setLanguage('en')} className={`flex-1 px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${language === 'en' ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white' : 'bg-slate-800/50 text-slate-300 hover:bg-slate-700/50'}`}>
+                {content.sidebar.language.english}
+              </button>
+              <button onClick={() => setLanguage('de')} className={`flex-1 px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${language === 'de' ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white' : 'bg-slate-800/50 text-slate-300 hover:bg-slate-700/50'}`}>
+                {content.sidebar.language.german}
+              </button>
+            </div>
+          </div>
+
           <div className="flex justify-center gap-4">
             {[{
               Icon: SendIcon,
               href: '#',
-              label: 'Telegram'
+              label: content.sidebar.social.telegram
             }, {
               Icon: MailIcon,
               href: '#',
-              label: 'Email'
+              label: content.sidebar.social.email
             }, {
               Icon: LinkedinIcon,
               href: '#',
-              label: 'LinkedIn'
+              label: content.sidebar.social.linkedin
             }, {
               Icon: GithubIcon,
               href: '#',
-              label: 'GitHub'
+              label: content.sidebar.social.github
             }].map(({
               Icon,
               href,
@@ -175,16 +154,16 @@ export function Sidebar({
           stiffness: 300
         }} className="relative mb-6">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full blur-xl opacity-50" />
-          <img src="/image.png" alt="Jibin Sebastian" className="relative w-32 xl:w-40 2xl:w-44 3xl:w-48 h-32 xl:h-40 2xl:h-44 3xl:h-48 rounded-full object-cover border-4 border-slate-800" />
+          <img src="/image.png" alt={content.sidebar.name} className="relative w-32 xl:w-40 2xl:w-44 3xl:w-48 h-32 xl:h-40 2xl:h-44 3xl:h-48 rounded-full object-cover border-4 border-slate-800" />
         </motion.div>
 
         <h1 className="text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl font-bold text-white mb-2 text-center">
-          Hi, I'm Jibin Sebastian
+          {content.sidebar.desktopHeading}
         </h1>
 
       </motion.div>
 
-      <nav className="flex-1 space-y-2 mb-8">
+      <nav className="flex-1 space-y-2">
         {tabs.map((tab, index) => <motion.button key={tab.id} initial={{
           opacity: 0,
           x: -20
@@ -207,6 +186,19 @@ export function Sidebar({
         </motion.button>)}
       </nav>
 
+      {/* Language toggle */}
+      <div className="mt-3 mb-8 rounded-xl border border-slate-800/50 bg-slate-900/40 p-4">
+        <p className="text-xs font-medium text-slate-400 mb-3">{content.sidebar.language.label}</p>
+        <div className="flex gap-2">
+          <button onClick={() => setLanguage('en')} className={`flex-1 px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${language === 'en' ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white' : 'bg-slate-800/50 text-slate-300 hover:bg-slate-700/50'}`}>
+            {content.sidebar.language.english}
+          </button>
+          <button onClick={() => setLanguage('de')} className={`flex-1 px-3 py-2 rounded-lg text-sm font-semibold transition-colors ${language === 'de' ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white' : 'bg-slate-800/50 text-slate-300 hover:bg-slate-700/50'}`}>
+            {content.sidebar.language.german}
+          </button>
+        </div>
+      </div>
+
       <motion.div initial={{
         opacity: 0
       }} animate={{
@@ -218,19 +210,19 @@ export function Sidebar({
         {[{
           Icon: SendIcon,
           href: '#',
-          label: 'Telegram'
+          label: content.sidebar.social.telegram
         }, {
           Icon: MailIcon,
           href: '#',
-          label: 'Email'
+          label: content.sidebar.social.email
         }, {
           Icon: LinkedinIcon,
           href: '#',
-          label: 'LinkedIn'
+          label: content.sidebar.social.linkedin
         }, {
           Icon: GithubIcon,
           href: '#',
-          label: 'GitHub'
+          label: content.sidebar.social.github
         }].map(({
           Icon,
           href,
