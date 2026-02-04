@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
 import { motion } from 'framer-motion';
-import { GithubIcon, ExternalLinkIcon } from 'lucide-react';
+import { GithubIcon } from 'lucide-react';
 interface ProjectCardProps {
   title: string;
   description: string;
@@ -24,15 +23,15 @@ function ProjectCard({
     delay
   }} whileHover={{
     y: -5
-  }} className="group relative bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:border-blue-500/50 transition-all duration-300">
+  }} className="group relative bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 2xl:p-7 3xl:p-8 hover:border-blue-500/50 transition-all duration-300">
       <div className="absolute inset-0 bg-gradient-to-br from-blue-600/0 to-purple-600/0 group-hover:from-blue-600/5 group-hover:to-purple-600/5 rounded-2xl transition-all duration-300" />
 
       <div className="relative">
-        <h3 className="text-xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors">
+        <h3 className="text-xl 2xl:text-2xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors whitespace-pre-line">
           {title}
         </h3>
 
-        <p className="text-slate-300 text-sm leading-relaxed mb-6">
+        <p className="text-slate-300 text-sm 2xl:text-base leading-relaxed mb-6 whitespace-pre-line">
           {description}
         </p>
 
@@ -49,6 +48,17 @@ function ProjectCard({
 }
 export function ProjectsSection() {
   const projects = [{
+    title: 'THESIS\nStock Market Performance Analysis',
+    description: `Topic: Using Python and Data Science to Analyse the Interplay of Socio-Economic Factors, Index Dependencies and Seasonal Variations on Stock Market Performance
+
+This thesis addresses a research gap by analyzing these three dimensions simultaneously using Python. Objectives:
+(1) quantify how major indices (NASDAQ100, S&P500) depend on a small set of companies;
+(2) assess the impact of socio-economic factors on stock market returns; and
+(3) examine seasonal patterns (notably September under-performance and contrasting October trends).
+
+Methodology & tools: data collection, preprocessing, visualization, modeling and analysis using Pandas, NumPy, Plotly, Statsmodels and Scikit-learn; time-series and regression/econometric models; ML feature-importance ranking; and a Generative AI / large language model to support seasonal trend analysis.`,
+    githubUrl: 'https://github.com/jibin-sebastian/mythesis'
+  }, {
     title: 'RESEARCH CASE STUDY',
     description: 'This research paper is dedicated to the attempts of automated classification of activity groups based on a small set of empirical motion data collected in the „SiNuS-Pflege" project. The underlying dataset encompasses motion-capture data as well as a large number of observations relatively small as well as the necessity for indirect extraction of information from various sensor devices including smartphones, fitness trackers, and smartwatches. While dealing with an unconventional dataset, knowledge extraction from sensors records and overall transformation were executed in separate steps. In pursuit of the application of different dimensionality reduction techniques (PCA, ISOMAP, UMAP), several clustering algorithms (hierarchical agglomerative clustering, Gaussian (Bayesian-based)K-Means, DBSCAN, BIRCH were consequently applied and the results were tracked down to reveal the possibility of the presence of sustainable clusters among participants of the experiment.',
     githubUrl: '#'
@@ -87,7 +97,7 @@ export function ProjectsSection() {
         <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full" />
       </motion.div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-6 2xl:gap-8">
         {projects.map((project, index) => <ProjectCard key={project.title} title={project.title} description={project.description} delay={0.1 + index * 0.1} githubUrl={project.githubUrl} />)}
       </div>
     </div>;

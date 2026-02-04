@@ -126,7 +126,7 @@ export function AIServicesSection() {
                     duration: 0.6,
                     delay: 0.2,
                 }}
-                className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm border border-cyan-500/20 rounded-3xl p-6 sm:p-8 lg:p-12 mb-12 sm:mb-16 relative overflow-hidden"
+                className="bg-gradient-to-br from-slate-800/60 to-slate-900/60 backdrop-blur-sm border border-cyan-500/20 rounded-3xl p-6 sm:p-8 lg:p-12 2xl:p-14 3xl:p-16 mb-12 sm:mb-16 relative overflow-hidden"
             >
                 {/* Animated accent */}
                 <motion.div
@@ -197,7 +197,7 @@ export function AIServicesSection() {
                 <div className="w-20 h-1 bg-gradient-to-r from-cyan-500 to-teal-600 rounded-full" />
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 2xl:gap-8">
                 {services.map((service, index) => (
                     <motion.div
                         key={service.title}
@@ -216,7 +216,7 @@ export function AIServicesSection() {
                         whileHover={{
                             y: -5,
                         }}
-                        className="group relative bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 hover:border-cyan-500/50 transition-all duration-300"
+                        className="group relative bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 2xl:p-7 3xl:p-8 hover:border-cyan-500/50 transition-all duration-300"
                     >
                         {/* Hover glow effect */}
                         <div
@@ -242,11 +242,11 @@ export function AIServicesSection() {
                                 </div>
                             </div>
 
-                            <h3 className="text-xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
+                            <h3 className="text-xl 2xl:text-2xl font-bold text-white mb-3 group-hover:text-cyan-400 transition-colors">
                                 {service.title}
                             </h3>
 
-                            <p className="text-slate-300 text-sm leading-relaxed">
+                            <p className="text-slate-300 text-sm 2xl:text-base leading-relaxed">
                                 {service.description}
                             </p>
                         </div>

@@ -26,7 +26,7 @@ export function CertificationsSection() {
       <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full" />
     </motion.div>
 
-    <div className="relative max-w-4xl mx-auto">
+    <div className="relative max-w-4xl 2xl:max-w-5xl 3xl:max-w-6xl mx-auto">
       <div className="relative aspect-[4/3] bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.img key={currentIndex} src={certifications[currentIndex]} alt={`Certification ${currentIndex + 1}`} initial={{
@@ -40,7 +40,7 @@ export function CertificationsSection() {
             scale: 0.95
           }} transition={{
             duration: 0.3
-          }} className="w-full h-full object-contain p-8" />
+          }} className="w-full h-full object-contain p-6 sm:p-8 2xl:p-10" />
         </AnimatePresence>
       </div>
 

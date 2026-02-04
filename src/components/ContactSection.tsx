@@ -98,15 +98,15 @@ export function ContactSection() {
         <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full" />
       </motion.div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-5 gap-6 lg:gap-8 2xl:gap-10">
         {/* Contact Information */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="lg:col-span-1 space-y-6"
+          className="lg:col-span-1 2xl:col-span-2 space-y-6"
         >
-          <div className="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6">
+          <div className="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 2xl:p-8">
             <h3 className="text-xl font-bold text-white mb-6">Contact Information</h3>
 
             <div className="space-y-4">
@@ -150,7 +150,7 @@ export function ContactSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
-            className="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6"
+            className="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 2xl:p-8"
           >
             <h3 className="text-lg font-bold text-white mb-4">Follow Me</h3>
             <div className="flex gap-3">
@@ -179,14 +179,14 @@ export function ContactSection() {
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.3 }}
-          className="lg:col-span-2"
+          className="lg:col-span-2 2xl:col-span-3"
         >
           <form
             ref={formRef}
             onSubmit={handleSubmit}
-            className="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 sm:p-8"
+            className="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 sm:p-8 2xl:p-10"
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 2xl:gap-8 mb-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-slate-300 mb-2">
                   Your Name

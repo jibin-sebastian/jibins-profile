@@ -63,7 +63,7 @@ export function App() {
         }} transition={{
           duration: 0.3,
           ease: 'easeInOut'
-        }} className="p-4 sm:p-6 md:p-8 lg:p-12 xl:p-16 max-w-[1600px] mx-auto">
+        }} className="p-4 sm:p-6 md:p-8 lg:p-12 xl:p-16 2xl:p-20 3xl:p-24 4xl:p-28 max-w-[1600px] 2xl:max-w-[1760px] 3xl:max-w-[2000px] 4xl:max-w-[2240px] mx-auto">
             {renderContent()}
           </motion.div>
         </AnimatePresence>

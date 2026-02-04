@@ -30,7 +30,7 @@ function SkillCard({
       background: `linear-gradient(135deg, ${color}, transparent)`
     }} />
 
-      <div className="relative bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-4 sm:p-6 hover:border-slate-600/50 transition-all duration-300">
+      <div className="relative bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-4 sm:p-6 2xl:p-7 3xl:p-8 hover:border-slate-600/50 transition-all duration-300">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center" style={{
           backgroundColor: `${color}20`
@@ -41,7 +41,7 @@ function SkillCard({
               {icon}
             </div>
           </div>
-          <h3 className="text-lg sm:text-xl font-bold text-white">{title}</h3>
+          <h3 className="text-lg sm:text-xl 2xl:text-2xl font-bold text-white">{title}</h3>
         </div>
 
         <motion.div initial={false} animate={{
@@ -56,7 +56,7 @@ function SkillCard({
         }} transition={{
           duration: 0.3,
           delay: delay + index * 0.05
-        }} className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+        }} className="text-slate-300 text-xs sm:text-sm 2xl:text-base leading-relaxed">
               • {skill}
             </motion.div>)}
         </motion.div>
@@ -101,7 +101,7 @@ export function SkillsSection() {
         <div className="w-20 h-1 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full" />
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 3xl:grid-cols-4 gap-4 sm:gap-6 2xl:gap-8">
         {skillCategories.map((category, index) => <SkillCard key={category.title} title={category.title} skills={category.skills} delay={0.1 + index * 0.1} color={category.color} icon={category.icon} />)}
       </div>
     </div>;

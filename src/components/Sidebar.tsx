@@ -158,7 +158,7 @@ export function Sidebar({
     </AnimatePresence>
 
     {/* Desktop Sidebar */}
-    <aside className="hidden lg:flex w-64 xl:w-80 bg-slate-950/50 backdrop-blur-xl border-r border-slate-800/50 flex-col p-6 xl:p-8">
+    <aside className="hidden lg:flex w-64 xl:w-80 2xl:w-96 3xl:w-[28rem] bg-slate-950/50 backdrop-blur-xl border-r border-slate-800/50 flex-col p-6 xl:p-8 2xl:p-10 3xl:p-12">
       <motion.div initial={{
         opacity: 0,
         y: 20
@@ -175,10 +175,10 @@ export function Sidebar({
           stiffness: 300
         }} className="relative mb-6">
           <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full blur-xl opacity-50" />
-          <img src="/image.png" alt="Jibin Sebastian" className="relative w-32 xl:w-40 h-32 xl:h-40 rounded-full object-cover border-4 border-slate-800" />
+          <img src="/image.png" alt="Jibin Sebastian" className="relative w-32 xl:w-40 2xl:w-44 3xl:w-48 h-32 xl:h-40 2xl:h-44 3xl:h-48 rounded-full object-cover border-4 border-slate-800" />
         </motion.div>
 
-        <h1 className="text-xl xl:text-2xl font-bold text-white mb-2 text-center">
+        <h1 className="text-xl xl:text-2xl 2xl:text-3xl 3xl:text-4xl font-bold text-white mb-2 text-center">
           Hi, I'm Jibin Sebastian
         </h1>
 

@@ -115,8 +115,10 @@ export function AboutSection() {
         {/* <div className="relative"> */}
         <AIBackdrop />
 
-        {/* Text Content with Layered Parallax */}
-        <div className="space-y-6 lg:space-y-8 relative">
+        {/* Content container (prevents overly wide layouts on ultrawide screens) */}
+        <div className="relative z-10 w-full px-4 sm:px-8 lg:px-12 2xl:px-16 3xl:px-20">
+          {/* Text Content with Layered Parallax */}
+          <div className="space-y-6 lg:space-y-8 relative">
           {/* Name - Slowest movement (foreground) */}
           <motion.div
             style={{ y: nameY, opacity: textOpacity }}
@@ -124,7 +126,7 @@ export function AboutSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h1 className="text-4xl sm:text-4xl lg:text-4xl xl:text-4xl font-bold text-white text-center mt-6 sm:mt-4">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl 2xl:text-6xl 3xl:text-7xl font-bold text-white text-center mt-6 sm:mt-4">
               Human by design, AI by craft
             </h1>
           </motion.div>
@@ -137,7 +139,7 @@ export function AboutSection() {
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="space-y-4 text-[14px] text-slate-200 leading-relaxed max-w-3xl"
+            className="space-y-4 text-sm sm:text-base 2xl:text-lg text-slate-200 leading-relaxed max-w-3xl xl:max-w-4xl 2xl:max-w-5xl mx-auto"
           >
             <p>
               I am an AI Software Engineer with a strong passion for solving complex, real-world challenges through
@@ -196,6 +198,7 @@ export function AboutSection() {
               AI Services
             </motion.a>
           </motion.div>
+          </div>
         </div>
         {/* </div> */}
         {/* </div> */}
@@ -219,12 +222,12 @@ export function AboutSection() {
         transition={{ duration: 0.5, delay: 0.1 }}
         className="bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 sm:p-8 mb-8 sm:mb-12"
       >
-        <p className="text-slate-300 leading-relaxed text-[14px] mb-4">
+        <p className="text-slate-300 leading-relaxed text-sm sm:text-base 2xl:text-lg mb-4">
           Data Science enthusiast and Analyst with a passion for solving real-world business challenges. Always up to
           date on the latest data science trends, I seek to work in a progressive organization that can broaden my
           knowledge and provide opportunities to utilize my skills effectively.
         </p>
-        <p className="text-slate-300 leading-relaxed text-[14px]">
+        <p className="text-slate-300 leading-relaxed text-sm sm:text-base 2xl:text-lg">
           With expertise spanning machine learning, deep learning, and MLOps, I bring a comprehensive approach to
           data-driven problem solving. My experience includes working with cutting-edge technologies and frameworks to
           deliver impactful solutions in predictive analytics and maintenance modeling.
@@ -244,14 +247,14 @@ export function AboutSection() {
             <div className="mb-4">
               <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
                 <h3 className="text-lg sm:text-xl font-bold text-white">{exp.role}</h3>
-                <span className="text-[14px] text-blue-400 font-medium">{exp.period}</span>
+                <span className="text-sm sm:text-base text-blue-400 font-medium">{exp.period}</span>
               </div>
-              <p className="text-blue-400 font-medium text-[14px]">{exp.company}</p>
+              <p className="text-blue-400 font-medium text-sm sm:text-base">{exp.company}</p>
             </div>
 
             <ul className="space-y-2">
               {exp.description.map((item, i) => (
-                <li key={i} className="text-slate-300 text-[14px] leading-relaxed flex">
+                <li key={i} className="text-slate-300 text-sm sm:text-base leading-relaxed flex">
                   <span className="text-blue-400 mr-2">-</span>
                   <span>{item}</span>
                 </li>
@@ -269,7 +272,7 @@ export function AboutSection() {
         className="mt-8 sm:mt-12 bg-slate-800/40 backdrop-blur-sm border border-slate-700/50 rounded-2xl p-6 sm:p-8"
       >
         <h3 className="text-xl sm:text-2xl font-bold text-white mb-4">Education</h3>
-        <p className="text-slate-300 leading-relaxed text-[14px]">
+        <p className="text-slate-300 leading-relaxed text-sm sm:text-base 2xl:text-lg">
           My educational background includes an{' '}
           <span className="text-blue-400 font-semibold">MSc in Data Science</span>, where I worked on various projects
           such as flight fare prediction and customer market segmentation using machine learning techniques. Worked on
